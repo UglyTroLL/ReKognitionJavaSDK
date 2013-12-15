@@ -1,0 +1,4 @@
+ReKognitionJavaSDK
+==================
+
+ReKognition Java SDK
