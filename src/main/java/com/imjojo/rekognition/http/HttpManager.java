@@ -30,8 +30,8 @@ public class HttpManager {
   private static final Logger logger = LogManager.getLogger(HttpManager.class.getName());
 
   private static final int MAX_CONNECTION = 150;
-  private static final int CONNECTION_TIMEOUT_IN_MS = 2000;
-  private static final int SOCKET_TIMEOUT_IN_MS = 2000;
+  private static final int CONNECTION_TIMEOUT_IN_MS = 5000;
+  private static final int SOCKET_TIMEOUT_IN_MS = 5000;
   private static final int OK_RESPONSE_STATUS_CODE = 200;
 
   private static final String DEFAULT_CHARSET = "UTF-8";

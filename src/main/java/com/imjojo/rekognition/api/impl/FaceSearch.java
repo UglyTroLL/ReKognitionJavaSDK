@@ -2,6 +2,7 @@ package com.imjojo.rekognition.api.impl;
 
 import com.imjojo.rekognition.adapter.AdapterInitException;
 import com.imjojo.rekognition.adapter.FaceAdapter;
+import com.imjojo.rekognition.adapter.FaceInnerSearchAdapter;
 import com.imjojo.rekognition.api.AbstractRekognitionAPI;
 import com.imjojo.rekognition.http.model.HttpParameter;
 import com.imjojo.rekognition.http.model.RekognitionAPIException;
@@ -84,7 +85,7 @@ public class FaceSearch extends AbstractRekognitionAPI {
     }
   }
   
-  public FaceAdapter innerSearch(String queryTag, String imageIndex, String nameSpace, String userId, Integer numReturn) throws RekognitionAPIException {
+  public FaceInnerSearchAdapter innerSearch(String queryTag, String imageIndex, String nameSpace, String userId, Integer numReturn) throws RekognitionAPIException {
     List<HttpParameter> params = new ArrayList<HttpParameter>();
     params.add(new HttpParameter("jobs", "face_inner_search"));
     if (StringUtils.isBlank(queryTag)) {
@@ -105,7 +106,7 @@ public class FaceSearch extends AbstractRekognitionAPI {
       params.add(new HttpParameter("num_return", numReturn));
     }
     try {
-      return this.perform(REKO_API_HOST_NAME, params, HttpMethod.GET, new FaceAdapter());
+      return this.perform(REKO_API_HOST_NAME, params, HttpMethod.GET, new FaceInnerSearchAdapter());
     } catch (AdapterInitException ex) {
       logger.error(ex.getMessage(), ex);
       return null;

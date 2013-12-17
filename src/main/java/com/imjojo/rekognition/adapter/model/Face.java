@@ -160,7 +160,7 @@ public class Face implements IRekognitionModel {
     return matches;
   }
   
-  public class Match implements IRekognitionModel {
+  public static class Match implements IRekognitionModel {
     
     private JSONObject matchObj;
     

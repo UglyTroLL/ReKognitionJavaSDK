@@ -12,8 +12,8 @@ import junit.framework.TestCase;
  */
 public class FaceDetectTest extends TestCase {
   
-  private static final String REKO_API_KEY = "MDFGUrzC3nd35KKP";
-  private static final String REKO_API_SECRET = "FktOEvh5bdroQfhF";
+  private static final String REKO_API_KEY = "";
+  private static final String REKO_API_SECRET = "";
   
   private List<FaceDetect.FaceDetectJobs> jobs = new ArrayList<FaceDetect.FaceDetectJobs>();
   
@@ -44,15 +44,15 @@ public class FaceDetectTest extends TestCase {
   /**
    * Test of getResponse method, of class FaceDetect.
    */
-  public void testGetResponse_List_String() throws Exception {
-    System.out.println("getResponse");
-    String pictureUrl = "http://rekognition.com/static/img/people.jpg";
-    FaceDetect instance = new FaceDetect(REKO_API_KEY, REKO_API_SECRET);
-    FaceAdapter result = instance.getResponse(jobs, pictureUrl);
-    System.out.println("result json : " + result.getResponseStr());
-    assertEquals(result.getFaces().size(), 1);
-    assertEquals(result.getFaces().get(0).getNose().getNoseX(), 170.1);
-  }
+//  public void testGetResponse_List_String() throws Exception {
+//    System.out.println("getResponse");
+//    String pictureUrl = "http://rekognition.com/static/img/people.jpg";
+//    FaceDetect instance = new FaceDetect(REKO_API_KEY, REKO_API_SECRET);
+//    FaceAdapter result = instance.getResponse(jobs, pictureUrl);
+//    System.out.println("result json : " + result.getResponseStr());
+//    assertEquals(result.getFaces().size(), 1);
+//    assertEquals(result.getFaces().get(0).getNose().getNoseX(), 170.1);
+//  }
 
   /**
    * Test of getResponse method, of class FaceDetect.
