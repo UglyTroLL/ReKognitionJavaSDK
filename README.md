@@ -35,7 +35,7 @@ double noseX = result.getFaces().get(0).getNose().getNoseX(); //Get whatever you
 //That's it
 ```
 
-All API usage examples can be found in the unit tests. I've disabled them for not causing any problems when compiling since running these unit tests need valid ReKognition api key and ReKognition api serect.
+All API usage examples can be found in the unit tests. I've disabled them for since running these unit tests needs valid ReKognition api key and ReKognition api serect. But you can refer to the code to get the idea how to use them.
 
 Concepts
 ---
