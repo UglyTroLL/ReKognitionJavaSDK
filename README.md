@@ -1,7 +1,7 @@
 ReKognition Java SDK
 ==================
 
-Java SDK for [ReKognition](https://rekognition.com/) face recognition APIs.
+Java SDK for [ReKognition](https://rekognition.com/) face recognition APIs. Should be OK for Android.
 
 Highlights
 ---
