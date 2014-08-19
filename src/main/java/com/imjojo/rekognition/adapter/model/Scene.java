@@ -18,7 +18,7 @@ public class Scene implements IRekognitionModel {
     this.sceneObj = sceneObj;
   }
 
-  public String getLabel() throws FieldNotFoundException {
+  public String getLabelOrThrow() throws FieldNotFoundException {
     if (this.label == null) {
       if (this.sceneObj.has("label")) {
         this.label = this.sceneObj.getString("label");
@@ -28,8 +28,19 @@ public class Scene implements IRekognitionModel {
     }
     return label;
   }
+  
+  public String getLabel() {
+    if (this.label == null) {
+      if (this.sceneObj.has("label")) {
+        this.label = this.sceneObj.getString("label");
+      } else {
+        return null;
+      }
+    }
+    return label;
+  }
 
-  public Double getScore() throws FieldNotFoundException {
+  public Double getScoreOrThrow() throws FieldNotFoundException {
     if (this.score == null) {
       if (this.sceneObj.has("score")) {
         this.score = this.sceneObj.getDouble("score");
@@ -40,6 +51,15 @@ public class Scene implements IRekognitionModel {
     return score;
   }
   
-  
+  public Double getScore() {
+    if (this.score == null) {
+      if (this.sceneObj.has("score")) {
+        this.score = this.sceneObj.getDouble("score");
+      } else {
+        return null;
+      }
+    }
+    return score;
+  }
   
 }

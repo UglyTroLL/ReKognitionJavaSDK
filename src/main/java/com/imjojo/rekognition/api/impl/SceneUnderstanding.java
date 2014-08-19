@@ -1,7 +1,6 @@
 package com.imjojo.rekognition.api.impl;
 
 import com.imjojo.rekognition.adapter.AdapterInitException;
-import com.imjojo.rekognition.adapter.FaceVisualizationAdapter;
 import com.imjojo.rekognition.adapter.SceneUnderstandingAdapter;
 import com.imjojo.rekognition.api.AbstractRekognitionAPI;
 import com.imjojo.rekognition.http.model.HttpParameter;
@@ -9,8 +8,7 @@ import com.imjojo.rekognition.http.model.RekognitionAPIException;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -18,7 +16,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class SceneUnderstanding extends AbstractRekognitionAPI {
   
-  private static final Logger logger = LogManager.getLogger(SceneUnderstanding.class);
+  private static final Logger logger = Logger.getLogger(SceneUnderstanding.class);
 
   public SceneUnderstanding(String apiKey, String apiSecret) {
     super(apiKey, apiSecret);

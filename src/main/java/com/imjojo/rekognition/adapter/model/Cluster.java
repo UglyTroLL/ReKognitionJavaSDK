@@ -20,23 +20,49 @@ public class Cluster implements IRekognitionModel{
     this.clusterObj = clusterObj;
   }
 
-  public String getTag() throws FieldNotFoundException {
+  public String getTagOrThrow() throws FieldNotFoundException {
     if (this.clusterObj.has("tag")) {
       return this.clusterObj.getString("tag");
     } else {
       throw new FieldNotFoundException("tag");
     }
   }
+  
+  public String getTag() {
+    if (this.clusterObj.has("tag")) {
+      return this.clusterObj.getString("tag");
+    } else {
+      return null;
+    }
+  }
 
-  public List<Long> getImgIndex() throws FieldNotFoundException {
+  public List<Long> getImgIndexOrThrow() throws FieldNotFoundException {
     if (this.imgIndex.isEmpty() && this.clusterObj.has("img_index")) {
       JSONArray indiceArray = this.clusterObj.getJSONArray("img_index");
-      for (int i = 0 ; i < indiceArray.size() ; i ++) {
-        this.imgIndex.add(indiceArray.getLong(i));
+      if (indiceArray != null) {
+        for (int i = 0 ; i < indiceArray.size() ; i ++) {
+          this.imgIndex.add(indiceArray.getLong(i));
+        }
       }
     }
     if (this.imgIndex.isEmpty()) {
       throw new FieldNotFoundException("img_index");
+    } else {
+      return this.imgIndex;
+    }
+  }
+  
+  public List<Long> getImgIndex() {
+    if (this.imgIndex.isEmpty() && this.clusterObj.has("img_index")) {
+      JSONArray indiceArray = this.clusterObj.getJSONArray("img_index");
+      if (indiceArray != null) {
+        for (int i = 0 ; i < indiceArray.size() ; i ++) {
+          this.imgIndex.add(indiceArray.getLong(i));
+        }
+      }
+    }
+    if (this.imgIndex.isEmpty()) {
+      return null;
     } else {
       return this.imgIndex;
     }

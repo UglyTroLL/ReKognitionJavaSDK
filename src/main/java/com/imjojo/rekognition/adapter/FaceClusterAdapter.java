@@ -6,8 +6,7 @@ import java.util.List;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -15,7 +14,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class FaceClusterAdapter extends JsonResponseAdapter {
   
-  private static final Logger logger = LogManager.getLogger(FaceClusterAdapter.class.getName());
+  private static final Logger logger = Logger.getLogger(FaceClusterAdapter.class.getName());
   
   private JSONArray clustersArray = null;
   

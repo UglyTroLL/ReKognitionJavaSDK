@@ -6,8 +6,7 @@ import java.util.List;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -17,7 +16,7 @@ public class FaceAdapter extends JsonResponseAdapter {
   
   private static final String FACE_DETECTION_KEY = "face_detection";
   
-  private static final Logger logger = LogManager.getLogger(FaceAdapter.class.getName());
+  private static final Logger logger = Logger.getLogger(FaceAdapter.class.getName());
   
   private JSONArray faceDetectedJsonArray = null;
   

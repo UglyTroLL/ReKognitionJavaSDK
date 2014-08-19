@@ -2,8 +2,7 @@ package com.imjojo.rekognition.adapter;
 
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -21,7 +20,7 @@ public class JsonResponseAdapter implements IRekognitionResponseAdapter {
   String status = null;
   String apiId = null;
   
-  private static final Logger logger = LogManager.getLogger(JsonResponseAdapter.class.getName());
+  private static final Logger logger = Logger.getLogger(JsonResponseAdapter.class.getName());
 
   @Override
   public void setResponseString(String responseStr) throws AdapterInitException {

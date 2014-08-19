@@ -8,8 +8,7 @@ import com.imjojo.rekognition.http.model.RekognitionAPIException;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -17,7 +16,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class FaceRename extends AbstractRekognitionAPI {
   
-  private static final Logger logger = LogManager.getLogger(FaceRename.class);
+  private static final Logger logger = Logger.getLogger(FaceRename.class);
 
   public FaceRename(String apiKey, String apiSecret) {
     super(apiKey, apiSecret);

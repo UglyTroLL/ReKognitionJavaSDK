@@ -20,7 +20,7 @@ public class NameSpaceStats implements IRekognitionModel {
     this.nameSpaceObj = nameSpaceObj;
   }
 
-  public String getNameSpace() throws FieldNotFoundException {
+  public String getNameSpaceOrThrow() throws FieldNotFoundException {
     if (this.nameSpace == null) {
       if (this.nameSpaceObj.has("name_space")) {
         this.nameSpace = this.nameSpaceObj.getString("name_space");
@@ -30,8 +30,19 @@ public class NameSpaceStats implements IRekognitionModel {
     }
     return nameSpace;
   }
+  
+  public String getNameSpace() {
+    if (this.nameSpace == null) {
+      if (this.nameSpaceObj.has("name_space")) {
+        this.nameSpace = this.nameSpaceObj.getString("name_space");
+      } else {
+        return null;
+      }
+    }
+    return nameSpace;
+  }
 
-  public Integer getNumberOfUserId() throws FieldNotFoundException {
+  public Integer getNumberOfUserIdOrThrow() throws FieldNotFoundException {
     if (this.numberOfUserId == null) {
       if (this.nameSpaceObj.has("num_user_id")) {
         this.numberOfUserId = this.nameSpaceObj.getInt("num_user_id");
@@ -41,8 +52,19 @@ public class NameSpaceStats implements IRekognitionModel {
     }
     return numberOfUserId;
   }
+  
+  public Integer getNumberOfUserId() {
+    if (this.numberOfUserId == null) {
+      if (this.nameSpaceObj.has("num_user_id")) {
+        this.numberOfUserId = this.nameSpaceObj.getInt("num_user_id");
+      } else {
+        return null;
+      }
+    }
+    return numberOfUserId;
+  }
 
-  public Integer getNumberOfTags() throws FieldNotFoundException {
+  public Integer getNumberOfTagsOrThrow() throws FieldNotFoundException {
     if (this.numberOfTags == null) {
       if (this.nameSpaceObj.has("num_tags")) {
         this.numberOfTags = this.nameSpaceObj.getInt("num_tags");
@@ -52,13 +74,35 @@ public class NameSpaceStats implements IRekognitionModel {
     }
     return numberOfTags;
   }
+  
+  public Integer getNumberOfTags() {
+    if (this.numberOfTags == null) {
+      if (this.nameSpaceObj.has("num_tags")) {
+        this.numberOfTags = this.nameSpaceObj.getInt("num_tags");
+      } else {
+        return null;
+      }
+    }
+    return numberOfTags;
+  }
 
-  public Integer getNumberOfImages() throws FieldNotFoundException {
+  public Integer getNumberOfImagesOrThrow() throws FieldNotFoundException {
     if (this.numberOfImages == null) {
       if (this.nameSpaceObj.has("num_img")) {
         this.numberOfImages = this.nameSpaceObj.getInt("num_img");
       } else {
         throw new FieldNotFoundException("name_space_stats.num_img");
+      }
+    }
+    return numberOfImages;
+  }
+  
+  public Integer getNumberOfImages() {
+    if (this.numberOfImages == null) {
+      if (this.nameSpaceObj.has("num_img")) {
+        this.numberOfImages = this.nameSpaceObj.getInt("num_img");
+      } else {
+        return null;
       }
     }
     return numberOfImages;

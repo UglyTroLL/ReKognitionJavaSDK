@@ -30,47 +30,119 @@ public class Face implements IRekognitionModel {
     this.faceObj = faceObj;
   }
 
-  public double getConfidence() throws FieldNotFoundException {
+  public double getConfidenceOrThrow() throws FieldNotFoundException {
     if (this.faceObj.has("confidence")) {
       return this.faceObj.getDouble("confidence");
     } else {
       throw new FieldNotFoundException("confidence");
     }
   }
+  
+  public double getConfidence() {
+    if (this.faceObj.has("confidence")) {
+      return this.faceObj.getDouble("confidence");
+    } else {
+      return -1d;
+    }
+  }
+  
+  public double getAgeOrThrow() throws FieldNotFoundException {
+    if (this.faceObj.has("age")) {
+      return this.faceObj.getDouble("age");
+    } else {
+      throw new FieldNotFoundException("age");
+    }
+  }
+  
+  public double getAge() {
+    if (this.faceObj.has("age")) {
+      return this.faceObj.getDouble("age");
+    } else {
+      return -1;
+    }
+  }
 
-  public double getSmile() throws FieldNotFoundException {
+  public double getSmileOrThrow() throws FieldNotFoundException {
     if (this.faceObj.has("smile")) {
       return this.faceObj.getDouble("smile");
     } else {
       throw new FieldNotFoundException("smile");
     }
   }
+  
+  public double getSmile() {
+    if (this.faceObj.has("smile")) {
+      return this.faceObj.getDouble("smile");
+    } else {
+      return -1d;
+    }
+  }
 
-  public double getGlasses() throws FieldNotFoundException {
+  public double getGlassesOrThrow() throws FieldNotFoundException {
     if (this.faceObj.has("glasses")) {
       return this.faceObj.getDouble("glasses");
     } else {
       throw new FieldNotFoundException("glasses");
     }
   }
+  
+  public double getGlasses() {
+    if (this.faceObj.has("glasses")) {
+      return this.faceObj.getDouble("glasses");
+    } else {
+      return -1d;
+    }
+  }
+  
+  public double getBeautyOrThrow() throws FieldNotFoundException {
+     if (this.faceObj.has("beauty")) {
+      return this.faceObj.getDouble("beauty");
+    } else {
+      throw new FieldNotFoundException("beauty");
+    } 
+  }
+  
+  public double getBeauty() {
+     if (this.faceObj.has("beauty")) {
+      return this.faceObj.getDouble("beauty");
+    } else {
+      return -1d;
+    } 
+  }
 
-  public double getEyeClosed() throws FieldNotFoundException {
+  public double getEyeClosedOrThrow() throws FieldNotFoundException {
     if (this.faceObj.has("eye_closed")) {
       return this.faceObj.getDouble("eye_closed");
     } else {
       throw new FieldNotFoundException("eye_closed");
     }
   }
+  
+  public double getEyeClosed() {
+    if (this.faceObj.has("eye_closed")) {
+      return this.faceObj.getDouble("eye_closed");
+    } else {
+      return -1d;
+    }
+  }
 
-  public double getMouthOpenWide() throws FieldNotFoundException {
+  public double getMouthOpenWideOrThrow() throws FieldNotFoundException {
     if (this.faceObj.has("mouth_open_wide")) {
       return this.faceObj.getDouble("mouth_open_wide");
     } else {
       throw new FieldNotFoundException("mouth_open_wide");
     }
   }
+  
+  public double getMouthOpenWide() {
+    if (this.faceObj.has("mouth_open_wide")) {
+      return this.faceObj.getDouble("mouth_open_wide");
+    } else {
+      return -1d;
+    }
+  }
 
-  public double getGender() throws FieldNotFoundException {
+  public double getGenderOrThrow() throws FieldNotFoundException {
     if (this.faceObj.has("sex")) {
       return this.faceObj.getDouble("sex");
     } else {
@@ -78,71 +150,171 @@ public class Face implements IRekognitionModel {
     }
   }
   
-  public String getImageIndex() throws FieldNotFoundException {
+  public double getGender() {
+    if (this.faceObj.has("sex")) {
+      return this.faceObj.getDouble("sex");
+    } else {
+      return -1d;
+    }
+  }
+  
+  public String getImageIndexOrThrow() throws FieldNotFoundException {
     if (this.faceObj.has("img_index")) {
       return this.faceObj.getString("img_index");
     } else {
       throw new FieldNotFoundException("img_index");
     }
   }
+  
+  public String getImageIndex() {
+    if (this.faceObj.has("img_index")) {
+      return this.faceObj.getString("img_index");
+    } else {
+      return null;
+    }
+  }
 
-  public Emotion getEmotion() throws FieldNotFoundException {
+  public Emotion getEmotionOrThrow() throws FieldNotFoundException {
     if (this.emotion == null) {
       this.emotion = new Emotion();
       this.emotion.loadDataFromJSONObject(faceObj);
     }
     return emotion;
   }
+  
+  public Emotion getEmotion() {
+    if (this.emotion == null) {
+      this.emotion = new Emotion();
+      try {
+        this.emotion.loadDataFromJSONObject(faceObj);
+      } catch (FieldNotFoundException ex) {
+        return null;
+      }
+    }
+    return emotion;
+  }
 
-  public Pose getPose() throws FieldNotFoundException {
+  public Pose getPoseOrThrow() throws FieldNotFoundException {
     if (this.pose == null) {
       this.pose = new Pose();
       this.pose.loadDataFromJSONObject(faceObj);
     }
     return pose;
   }
+  
+  public Pose getPose() {
+    if (this.pose == null) {
+      this.pose = new Pose();
+      try {
+        this.pose.loadDataFromJSONObject(faceObj);
+      } catch (FieldNotFoundException ex) {
+        return null;
+      }
+    }
+    return pose;
+  }
 
-  public Nose getNose() throws FieldNotFoundException {
+  public Nose getNoseOrThrow() throws FieldNotFoundException {
     if (this.nose == null) {
       this.nose = new Nose();
       this.nose.loadDataFromJSONObject(faceObj);
     }
     return nose;
   }
+  
+  public Nose getNose() {
+    if (this.nose == null) {
+      this.nose = new Nose();
+      try {
+        this.nose.loadDataFromJSONObject(faceObj);
+      } catch (FieldNotFoundException ex) {
+        return null;
+      }
+    }
+    return nose;
+  }
 
-  public Mouth getMouth() throws FieldNotFoundException {
+  public Mouth getMouthOrThrow() throws FieldNotFoundException {
     if (this.mouth == null) {
       this.mouth = new Mouth();
       this.mouth.loadDataFromJSONObject(faceObj);
     }
     return mouth;
   }
+  
+  public Mouth getMouth() {
+    if (this.mouth == null) {
+      this.mouth = new Mouth();
+      try {
+        this.mouth.loadDataFromJSONObject(faceObj);
+      } catch (FieldNotFoundException ex) {
+        return null;
+      }
+    }
+    return mouth;
+  }
 
-  public Eyes getEyes() throws FieldNotFoundException {
+  public Eyes getEyesOrThrow() throws FieldNotFoundException {
     if (this.eyes == null) {
       this.eyes = new Eyes();
       this.eyes.loadDataFromJSONObject(faceObj);
     }
     return eyes;
   }
+  
+  public Eyes getEyes() {
+    if (this.eyes == null) {
+      this.eyes = new Eyes();
+      try {
+        this.eyes.loadDataFromJSONObject(faceObj);
+      } catch (FieldNotFoundException ex) {
+        return null;
+      }
+    }
+    return eyes;
+  }
 
-  public BoundingBox getBoundingBox() throws FieldNotFoundException {
+  public BoundingBox getBoundingBoxOrThrow() throws FieldNotFoundException {
     if (this.boundingBox == null) {
       this.boundingBox = new BoundingBox();
       this.boundingBox.loadDataFromJSONObject(faceObj);
     }
     return boundingBox;
   }
+  
+  public BoundingBox getBoundingBox() {
+    if (this.boundingBox == null) {
+      this.boundingBox = new BoundingBox();
+      try {
+        this.boundingBox.loadDataFromJSONObject(faceObj);
+      } catch (FieldNotFoundException ex) {
+        return null;
+      }
+    }
+    return boundingBox;
+  }
 
-  public Race getRace() throws FieldNotFoundException {
+  public Race getRaceOrThrow() throws FieldNotFoundException {
     if (this.race == null) {
       this.race = new Race();
       this.race.loadDataFromJSONObject(faceObj);
     }
     return race;
   }
+  
+  public Race getRace() {
+    if (this.race == null) {
+      this.race = new Race();
+      try {
+        this.race.loadDataFromJSONObject(faceObj);
+      } catch (FieldNotFoundException ex) {
+        return null;
+      }
+    }
+    return race;
+  }
 
-  public List<Match> getMatches() throws FieldNotFoundException {
+  public List<Match> getMatchesOrThrow() throws FieldNotFoundException {
     if (this.matches == null) {
       this.matches = new ArrayList<Match>();
       try {
@@ -155,6 +327,24 @@ public class Face implements IRekognitionModel {
         }
       } catch (Exception ex) {
         throw new FieldNotFoundException("matches");
+      }
+    }
+    return matches;
+  }
+  
+  public List<Match> getMatches() throws FieldNotFoundException {
+    if (this.matches == null) {
+      this.matches = new ArrayList<Match>();
+      try {
+        JSONArray mathcesArray = this.faceObj.getJSONArray("matches");
+        for (int i = 0 ; i < mathcesArray.size() ; i ++) {
+          JSONObject matchObj = mathcesArray.getJSONObject(i);
+          Match match = new Match();
+          match.loadDataFromJSONObject(matchObj);
+          this.matches.add(match);
+        }
+      } catch (Exception ex) {
+        return null;
       }
     }
     return matches;

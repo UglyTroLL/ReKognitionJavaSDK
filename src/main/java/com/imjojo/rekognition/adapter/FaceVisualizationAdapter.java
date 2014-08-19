@@ -6,8 +6,7 @@ import java.util.List;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -19,7 +18,7 @@ public class FaceVisualizationAdapter extends JsonResponseAdapter {
   
   private List<Visualization> visualizations = null;
   
-  private static final Logger logger = LogManager.getLogger(FaceVisualizationAdapter.class.getName());
+  private static final Logger logger = Logger.getLogger(FaceVisualizationAdapter.class.getName());
   
   @Override
   public void setResponseString(String responseStr) throws AdapterInitException {

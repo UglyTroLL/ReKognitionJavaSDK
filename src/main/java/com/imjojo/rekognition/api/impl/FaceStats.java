@@ -2,15 +2,13 @@ package com.imjojo.rekognition.api.impl;
 
 import com.imjojo.rekognition.adapter.AdapterInitException;
 import com.imjojo.rekognition.adapter.FaceStatsAdapter;
-import com.imjojo.rekognition.adapter.JsonResponseAdapter;
 import com.imjojo.rekognition.api.AbstractRekognitionAPI;
 import com.imjojo.rekognition.http.model.HttpParameter;
 import com.imjojo.rekognition.http.model.RekognitionAPIException;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -18,7 +16,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class FaceStats extends AbstractRekognitionAPI {
   
-  private static final Logger logger = LogManager.getLogger(FaceStats.class);
+  private static final Logger logger = Logger.getLogger(FaceStats.class);
 
   public FaceStats(String apiKey, String apiSecret) {
     super(apiKey, apiSecret);
